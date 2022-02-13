@@ -2,9 +2,7 @@ FROM python:3.9-alpine
 
 WORKDIR /app
 
-COPY dist/bandit-github-formatter-1.0.tar.gz bandit-github-formatter-1.0.tar.gz
-RUN pip install bandit==1.7.0 requests==2.25.1 bandit-github-formatter-1.0.tar.gz
-RUN rm bandit-github-formatter-1.0.tar.gz
+RUN pip install bandit requests==2.25.1 bandit_sarif_formatter
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
