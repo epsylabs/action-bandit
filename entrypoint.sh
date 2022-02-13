@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#./entrypoint.sh . high high ./.venv 0 DEFAULT DEFAULT
+#./entrypoint.sh . high high ./.venv 0 DEFAULT DEFAULT format path
 
 UPPERCASE_LEVEL=$(echo $2 | tr a-z A-Z)
 case $UPPERCASE_LEVEL in
@@ -58,4 +58,5 @@ else
     INI_PATH="--ini $7"
 fi
 
-bandit -f github -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH
+
+bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH
