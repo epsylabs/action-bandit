@@ -40,6 +40,10 @@ inputs:
   GITHUB_TOKEN:
     description: 'Github token of the repository (automatically created by Github)'
     required: true
+  use_bandit_yaml:
+    description: 'set to true if bandit.yaml file is used. expected to be at the root of the path variable'
+    required: false
+    default: 'false'
 runs:
   using: 'docker'
   image: 'docker://mglivn/action-bandit:DEVOP-13'
@@ -53,3 +57,4 @@ runs:
     - ${{ inputs.ini_path }}
     - ${{ inputs.format }}
     - ${{ inputs.output }}
+    - ${{ inputs.use_bandit_yaml }}
