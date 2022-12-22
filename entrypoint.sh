@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#./entrypoint.sh . high high ./.venv 0 DEFAULT DEFAULT format path
+#./entrypoint.sh . high high ./.venv 0 DEFAULT DEFAULT format path has_bandit_yaml
 
 UPPERCASE_LEVEL=$(echo $2 | tr a-z A-Z)
 case $UPPERCASE_LEVEL in
@@ -58,5 +58,8 @@ else
     INI_PATH="--ini $7"
 fi
 
-
-bandit -c bandit.yaml -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
+if [ "$8" == "true" ] || [ "$8" == "TRUE" ]; then
+    bandit -c bandit.yaml -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
+else
+    bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
+fi
