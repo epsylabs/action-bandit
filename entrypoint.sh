@@ -58,7 +58,11 @@ else
     INI_PATH="--ini $7"
 fi
 
-if [ "$10" == "true" ] || [ "$10" == "TRUE" ]; then
+bandit --version
+
+echo "has_bandit_yaml is - $10"
+
+if [ "$10" == "true" ]; then
     bandit -c bandit.yaml -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
 else
     bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
