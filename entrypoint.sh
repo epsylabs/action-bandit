@@ -60,9 +60,9 @@ fi
 
 bandit --version
 
-echo "has_bandit_yaml is - $10"
+echo "has_bandit_yaml is - ${10}"
 
-if [ "$10" == "true" ]; then
+if [ "${10}" == "true" ]; then
     bandit -c bandit.yaml -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
 else
     bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
