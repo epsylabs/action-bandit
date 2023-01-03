@@ -61,7 +61,10 @@ else
 fi
 
 if [ "${10}" == "true" ]; then
-    bandit -c bandit.yaml -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
+    USE_BANDIT_YAML="-c bandit.yaml"
 else
-    bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH --exit-zero
+    USE_BANDIT_YAML=""
 fi
+
+bandit -f $8 -o $9 -r $1 $LEVEL $CONFIDENCE $EXCLUDED_PATHS $EXIT_ZERO $SKIPS $INI_PATH $USE_BANDIT_YAML --exit-zero
+
