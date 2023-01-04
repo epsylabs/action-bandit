@@ -53,6 +53,9 @@ Can be LOW, MEDIUM or HIGH. Default is UNDEFINED (everything).
 
 **Required** Github token of the repository (automatically created by Github)
 
+### `use_bandit_yaml`
+
+**Optional** set to true if bandit.yaml file is used. bandit.yaml file is expected at the path variable location. if not set, use_bandit_yaml is set to false.
 
 
 ## Outputs
